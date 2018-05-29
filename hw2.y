@@ -6,7 +6,7 @@
 							wa le e04 your teacher
 								and you are a dog fxck you!!!!
 	
-	Suggerst reading in vscode
+	Suggest reading in vscode
 	maybe has some problems in string and some while/if condictions
 	this project hadn't finished the array type and float type
 	!!!!!
