@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 9 "hw2.y" /* yacc.c:339  */
+#line 16 "hw2.y" /* yacc.c:339  */
 
     #include<iostream>
     #include<string>
@@ -97,7 +97,7 @@
     int idcount[256]={0};
     int functioncount = 0;
 	int functionstatetype = 5;		// let me know what the type in this function. default is 5(void)
-    int tabcount = 0;
+    int tabcount = 0;				// the total table number
 	int statecount =0;				// to record the function's state number,if it is 0 it is error
 	int stackcount = 0;				// to record the stack has been already haven in this function
 	int label_stack[100];   		// for the situation has many if-else whiles,so i must save the next else's or outside label
@@ -276,7 +276,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 83 "hw2.y" /* yacc.c:355  */
+#line 90 "hw2.y" /* yacc.c:355  */
 
 	struct{
 		int tokentype; // 0:int 1:float 2:char 3:string 4:bool
@@ -607,19 +607,19 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   116,   116,   118,   119,   121,   122,   125,   124,   163,
-     162,   177,   176,   212,   211,   233,   234,   235,   236,   238,
-     239,   241,   252,   285,   315,   316,   318,   319,   321,   322,
-     323,   325,   325,   350,   350,   376,   413,   450,   457,   470,
-     488,   506,   524,   542,   543,   544,   545,   547,   548,   549,
-     550,   551,   553,   600,   630,   655,   656,   658,   657,   663,
-     662,   686,   685,   709,   727,   746,   746,   749,   750,   751,
-     778,   805,   832,   859,   871,   888,   914,   923,   924,  1004,
-    1064,  1066,  1067,  1068,  1069,  1070,  1071,  1072,  1073,  1074,
-    1095,  1094,  1102,  1103,  1105,  1104,  1111,  1110,  1117,  1116,
-    1123,  1122,  1129,  1192,  1248,  1304,  1367,  1423,  1479,  1523,
-    1567,  1581,  1582,  1585,  1591,  1584,  1598,  1605,  1613,  1614,
-    1615,  1616
+       0,   123,   123,   125,   126,   128,   129,   132,   131,   170,
+     169,   184,   183,   219,   218,   240,   241,   242,   243,   245,
+     246,   248,   259,   292,   322,   323,   325,   326,   328,   329,
+     330,   332,   332,   357,   357,   383,   420,   457,   464,   477,
+     495,   513,   531,   549,   550,   551,   552,   554,   555,   556,
+     557,   558,   560,   607,   637,   662,   663,   665,   664,   670,
+     669,   693,   692,   716,   734,   753,   753,   756,   757,   758,
+     785,   812,   839,   866,   878,   895,   921,   930,   931,  1011,
+    1071,  1073,  1074,  1075,  1076,  1077,  1078,  1079,  1080,  1081,
+    1102,  1101,  1109,  1110,  1112,  1111,  1118,  1117,  1124,  1123,
+    1130,  1129,  1136,  1199,  1255,  1311,  1374,  1430,  1486,  1530,
+    1574,  1588,  1589,  1592,  1598,  1591,  1605,  1612,  1620,  1621,
+    1622,  1623
 };
 #endif
 
@@ -1603,37 +1603,37 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 116 "hw2.y" /* yacc.c:1646  */
+#line 123 "hw2.y" /* yacc.c:1646  */
     {if(functioncount==0)yyerror("no function error");cout<<endl<<"global ";dump(tabcount);cout<<endl<<"global ";functiondump();Trace("< program reduce to start >\n");}
 #line 1609 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 118 "hw2.y" /* yacc.c:1646  */
+#line 125 "hw2.y" /* yacc.c:1646  */
     {Trace("< declarations function_dec reduce to program >\n");}
 #line 1615 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 119 "hw2.y" /* yacc.c:1646  */
+#line 126 "hw2.y" /* yacc.c:1646  */
     {Trace("< function_dec reduce to program >\n");}
 #line 1621 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 121 "hw2.y" /* yacc.c:1646  */
+#line 128 "hw2.y" /* yacc.c:1646  */
     {Trace("< function reduce to function_dec >\n");}
 #line 1627 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 122 "hw2.y" /* yacc.c:1646  */
+#line 129 "hw2.y" /* yacc.c:1646  */
     {Trace("< function function_dec reduce to function_dec >\n");}
 #line 1633 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 125 "hw2.y" /* yacc.c:1646  */
+#line 132 "hw2.y" /* yacc.c:1646  */
     {
 			is_local = 1;								// tell us it is in a function(local) now
 			functionstatetype = (yyvsp[0].Token).tokentype;
@@ -1674,13 +1674,13 @@ yyreduce:
     break;
 
   case 8:
-#line 161 "hw2.y" /* yacc.c:1646  */
+#line 168 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).stringval=(yyvsp[-8].Token).stringval;argudump();Trace("< FN NAME '(' argument ')' '-' '>' Type block reduce to function >\n");}
 #line 1680 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 163 "hw2.y" /* yacc.c:1646  */
+#line 170 "hw2.y" /* yacc.c:1646  */
     {
 			is_local = 1;
 			functionstatetype = (yyvsp[0].Token).tokentype;
@@ -1697,13 +1697,13 @@ yyreduce:
     break;
 
   case 10:
-#line 175 "hw2.y" /* yacc.c:1646  */
+#line 182 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).stringval=(yyvsp[-7].Token).stringval;Trace("< FN NAME '(' ')' '-' '>' Type block reduce to function >\n");}
 #line 1703 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 177 "hw2.y" /* yacc.c:1646  */
+#line 184 "hw2.y" /* yacc.c:1646  */
     {
 			is_local = 1;
 			functionstatetype = 5;
@@ -1741,13 +1741,13 @@ yyreduce:
     break;
 
   case 12:
-#line 210 "hw2.y" /* yacc.c:1646  */
+#line 217 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).stringval=(yyvsp[-5].Token).stringval;argudump();Trace("< FN NAME '(' argument ')' block reduce to function >\n");}
 #line 1747 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 212 "hw2.y" /* yacc.c:1646  */
+#line 219 "hw2.y" /* yacc.c:1646  */
     {
 			is_local = 1;
 			functionstatetype = 5;
@@ -1771,49 +1771,49 @@ yyreduce:
     break;
 
   case 14:
-#line 231 "hw2.y" /* yacc.c:1646  */
+#line 238 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).stringval=(yyvsp[-4].Token).stringval;Trace("< FN NAME '(' ')' block reduce to function >\n");}
 #line 1777 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 233 "hw2.y" /* yacc.c:1646  */
+#line 240 "hw2.y" /* yacc.c:1646  */
     {is_local = 0;/* it tell us I go in to the function block(in local)*/ stackcount=0;Trace("< block return ';' '}' reduce to function_block >\n");}
 #line 1783 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 234 "hw2.y" /* yacc.c:1646  */
+#line 241 "hw2.y" /* yacc.c:1646  */
     {is_local = 0;if(statecount==0)yyerror("no statement error");fprintf(javacode,"\t\treturn\n\t}\n");stackcount=0;Trace("< block '}' reduce to function_block >\n");}
 #line 1789 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 235 "hw2.y" /* yacc.c:1646  */
+#line 242 "hw2.y" /* yacc.c:1646  */
     {if(functionstatetype!=5)fprintf(javacode,"\t\tireturn\n\t}\n");else fprintf(javacode,"\t\treturn\n\t}\n");Trace("< RETURN expression reduce to return >\n");}
 #line 1795 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 236 "hw2.y" /* yacc.c:1646  */
+#line 243 "hw2.y" /* yacc.c:1646  */
     {if(functionstatetype!=5)fprintf(javacode,"\t\tireturn\n\t}\n");else fprintf(javacode,"\t\treturn\n\t}\n");Trace("< RETURN reduce to return >\n");}
 #line 1801 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 238 "hw2.y" /* yacc.c:1646  */
+#line 245 "hw2.y" /* yacc.c:1646  */
     {Trace("< argument ',' arguments reduce to arguments >\n");}
 #line 1807 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 239 "hw2.y" /* yacc.c:1646  */
+#line 246 "hw2.y" /* yacc.c:1646  */
     {Trace("< argument reduce to arguments >\n");}
 #line 1813 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 242 "hw2.y" /* yacc.c:1646  */
+#line 249 "hw2.y" /* yacc.c:1646  */
     {
 			if(totalargu==0)	/* tell us i go into argument scope to zero the argument number*/
 			{	
@@ -1827,7 +1827,7 @@ yyreduce:
     break;
 
   case 22:
-#line 253 "hw2.y" /* yacc.c:1646  */
+#line 260 "hw2.y" /* yacc.c:1646  */
     {
 		int check = returnfunctiontype((yyvsp[-3].Token).stringval);	// ignore under this
 		if(check==0)
@@ -1864,7 +1864,7 @@ yyreduce:
     break;
 
   case 23:
-#line 286 "hw2.y" /* yacc.c:1646  */
+#line 293 "hw2.y" /* yacc.c:1646  */
     {
 		int check = returnfunctiontype((yyvsp[-2].Token).stringval);			// ignore under this 
 		if(check==0)
@@ -1897,55 +1897,55 @@ yyreduce:
     break;
 
   case 24:
-#line 315 "hw2.y" /* yacc.c:1646  */
+#line 322 "hw2.y" /* yacc.c:1646  */
     {Trace("< expression ',' function_invoke reduce to function_invoke >\n");}
 #line 1903 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 316 "hw2.y" /* yacc.c:1646  */
+#line 323 "hw2.y" /* yacc.c:1646  */
     {Trace("< expression reduce to function_invoke >\n");}
 #line 1909 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 318 "hw2.y" /* yacc.c:1646  */
+#line 325 "hw2.y" /* yacc.c:1646  */
     {Trace("< declaration reduce to declarations >\n");}
 #line 1915 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 319 "hw2.y" /* yacc.c:1646  */
+#line 326 "hw2.y" /* yacc.c:1646  */
     {Trace("< declaration declarations reduce to declarations >\n");}
 #line 1921 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 321 "hw2.y" /* yacc.c:1646  */
+#line 328 "hw2.y" /* yacc.c:1646  */
     {Trace("< constant reduce to declaration >\n");}
 #line 1927 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 322 "hw2.y" /* yacc.c:1646  */
+#line 329 "hw2.y" /* yacc.c:1646  */
     {Trace("< variable reduce to declaration >\n");}
 #line 1933 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 323 "hw2.y" /* yacc.c:1646  */
+#line 330 "hw2.y" /* yacc.c:1646  */
     {Trace("< array reduce to declaration >\n");}
 #line 1939 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 325 "hw2.y" /* yacc.c:1646  */
+#line 332 "hw2.y" /* yacc.c:1646  */
     {is_const=1;}
 #line 1945 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 327 "hw2.y" /* yacc.c:1646  */
+#line 334 "hw2.y" /* yacc.c:1646  */
     {
 			insert(tabcount,(yyvsp[-3].Token).stringval,0,0);
 			if((yyvsp[0].Token).tokentype==0)
@@ -1973,13 +1973,13 @@ yyreduce:
     break;
 
   case 33:
-#line 350 "hw2.y" /* yacc.c:1646  */
+#line 357 "hw2.y" /* yacc.c:1646  */
     {is_const = 1;}
 #line 1979 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 352 "hw2.y" /* yacc.c:1646  */
+#line 359 "hw2.y" /* yacc.c:1646  */
     {
 			insert(tabcount,(yyvsp[-5].Token).stringval,(yyvsp[-3].Token).tokentype,0,0);
 			if((yyvsp[-3].Token).tokentype==0)
@@ -2007,7 +2007,7 @@ yyreduce:
     break;
 
   case 35:
-#line 377 "hw2.y" /* yacc.c:1646  */
+#line 384 "hw2.y" /* yacc.c:1646  */
     {
 			insert(tabcount,(yyvsp[-2].Token).stringval,1,0);
 			if((yyvsp[0].Token).tokentype==0)
@@ -2048,7 +2048,7 @@ yyreduce:
     break;
 
   case 36:
-#line 414 "hw2.y" /* yacc.c:1646  */
+#line 421 "hw2.y" /* yacc.c:1646  */
     {
 			insert(tabcount,(yyvsp[-4].Token).stringval,(yyvsp[-2].Token).tokentype,1,0);
 			if((yyvsp[-2].Token).tokentype==0)
@@ -2089,7 +2089,7 @@ yyreduce:
     break;
 
   case 37:
-#line 451 "hw2.y" /* yacc.c:1646  */
+#line 458 "hw2.y" /* yacc.c:1646  */
     {
 			insert(tabcount,(yyvsp[0].Token).stringval,1,0);
 			if(tabcount==0)
@@ -2100,7 +2100,7 @@ yyreduce:
     break;
 
   case 38:
-#line 458 "hw2.y" /* yacc.c:1646  */
+#line 465 "hw2.y" /* yacc.c:1646  */
     {
 			insert(tabcount,(yyvsp[-2].Token).stringval,(yyvsp[0].Token).tokentype,1,0);
 			if(tabcount==0)
@@ -2116,7 +2116,7 @@ yyreduce:
     break;
 
   case 39:
-#line 471 "hw2.y" /* yacc.c:1646  */
+#line 478 "hw2.y" /* yacc.c:1646  */
     {
 		    if(return_constant_or_variable(tabcount,(yyvsp[-1].Token).stringval)==1)
 				yyerror("array size is variable error");
@@ -2138,7 +2138,7 @@ yyreduce:
     break;
 
   case 40:
-#line 489 "hw2.y" /* yacc.c:1646  */
+#line 496 "hw2.y" /* yacc.c:1646  */
     {
 		    if(return_constant_or_variable(tabcount,(yyvsp[-1].Token).stringval)==1)
 				yyerror("array size is variable error");
@@ -2160,7 +2160,7 @@ yyreduce:
     break;
 
   case 41:
-#line 507 "hw2.y" /* yacc.c:1646  */
+#line 514 "hw2.y" /* yacc.c:1646  */
     {
 		    if(return_constant_or_variable(tabcount,(yyvsp[-1].Token).stringval)==1)
 				yyerror("array size is variable error");
@@ -2182,7 +2182,7 @@ yyreduce:
     break;
 
   case 42:
-#line 525 "hw2.y" /* yacc.c:1646  */
+#line 532 "hw2.y" /* yacc.c:1646  */
     {
 		    if(return_constant_or_variable(tabcount,(yyvsp[-1].Token).stringval)==1)
 				yyerror("array size is variable error");
@@ -2204,61 +2204,61 @@ yyreduce:
     break;
 
   case 43:
-#line 542 "hw2.y" /* yacc.c:1646  */
+#line 549 "hw2.y" /* yacc.c:1646  */
     {insertarray(tabcount,(yyvsp[-5].Token).stringval,0,(yyvsp[-1].Token).intval,1,"___"); Trace("< LET MUT NAME '[' INT ',' int_expression ']' reduce to array >\n");}
 #line 2210 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 543 "hw2.y" /* yacc.c:1646  */
+#line 550 "hw2.y" /* yacc.c:1646  */
     {insertarray(tabcount,(yyvsp[-5].Token).stringval,1,(yyvsp[-1].Token).intval,1,"___"); Trace("< LET MUT NAME '[' FLOAT ',' int_expression ']' reduce to array >\n");}
 #line 2216 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 544 "hw2.y" /* yacc.c:1646  */
+#line 551 "hw2.y" /* yacc.c:1646  */
     {insertarray(tabcount,(yyvsp[-5].Token).stringval,3,(yyvsp[-1].Token).intval,1,"___"); Trace("< LET MUT NAME '[' STR ',' int_expression ']' reduce to array >\n");}
 #line 2222 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 545 "hw2.y" /* yacc.c:1646  */
+#line 552 "hw2.y" /* yacc.c:1646  */
     {insertarray(tabcount,(yyvsp[-5].Token).stringval,4,(yyvsp[-1].Token).intval,1,"___"); Trace("< LET MUT NAME '[' BOOL ',' int_expression ']' reduce to array >\n");}
 #line 2228 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 547 "hw2.y" /* yacc.c:1646  */
+#line 554 "hw2.y" /* yacc.c:1646  */
     {Trace("< declarations scopecontent reduce to scopecontent >\n");}
 #line 2234 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 548 "hw2.y" /* yacc.c:1646  */
+#line 555 "hw2.y" /* yacc.c:1646  */
     {Trace("< statement scopecontent reduce to scopecontent >\n");}
 #line 2240 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 549 "hw2.y" /* yacc.c:1646  */
+#line 556 "hw2.y" /* yacc.c:1646  */
     {Trace("< declarations reduce to scopecontent >\n");}
 #line 2246 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 550 "hw2.y" /* yacc.c:1646  */
+#line 557 "hw2.y" /* yacc.c:1646  */
     {Trace("< statement reduce to scopecontent >\n");}
 #line 2252 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 551 "hw2.y" /* yacc.c:1646  */
+#line 558 "hw2.y" /* yacc.c:1646  */
     {Trace("< empty reduce to scopecontent >\n");}
 #line 2258 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 554 "hw2.y" /* yacc.c:1646  */
+#line 561 "hw2.y" /* yacc.c:1646  */
     {
 			statecount = 1;								// to record there is a state in this function
 			if(insertcheck(tabcount,(yyvsp[-3].Token).stringval)==1)
@@ -2309,7 +2309,7 @@ yyreduce:
     break;
 
   case 53:
-#line 601 "hw2.y" /* yacc.c:1646  */
+#line 608 "hw2.y" /* yacc.c:1646  */
     {
 			statecount = 1;
 			if(insertcheck(tabcount,(yyvsp[-3].Token).stringval)==1)
@@ -2343,7 +2343,7 @@ yyreduce:
     break;
 
   case 54:
-#line 631 "hw2.y" /* yacc.c:1646  */
+#line 638 "hw2.y" /* yacc.c:1646  */
     {
 			statecount = 1;
 			if((yyvsp[-1].Token).tokentype==0&&returntype(tabcount,(yyvsp[-6].Token).stringval)==0)
@@ -2372,19 +2372,19 @@ yyreduce:
     break;
 
   case 55:
-#line 655 "hw2.y" /* yacc.c:1646  */
+#line 662 "hw2.y" /* yacc.c:1646  */
     {statecount = 1;Trace("< if_statement reduce to statement >\n");}
 #line 2378 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 56:
-#line 656 "hw2.y" /* yacc.c:1646  */
+#line 663 "hw2.y" /* yacc.c:1646  */
     {statecount = 1;Trace("< loop_statement reduce to statement >\n");}
 #line 2384 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 658 "hw2.y" /* yacc.c:1646  */
+#line 665 "hw2.y" /* yacc.c:1646  */
     {
 			fprintf(javacode,"\t\tgetstatic java.io.PrintStream java.lang.System.out\n");
 		}
@@ -2392,13 +2392,13 @@ yyreduce:
     break;
 
   case 58:
-#line 661 "hw2.y" /* yacc.c:1646  */
+#line 668 "hw2.y" /* yacc.c:1646  */
     {Trace("< PRINT expression reduce to statement >\n");}
 #line 2398 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 59:
-#line 663 "hw2.y" /* yacc.c:1646  */
+#line 670 "hw2.y" /* yacc.c:1646  */
     {
 			fprintf(javacode,"\t\tgetstatic java.io.PrintStream java.lang.System.out\n");
 		}
@@ -2406,7 +2406,7 @@ yyreduce:
     break;
 
   case 60:
-#line 667 "hw2.y" /* yacc.c:1646  */
+#line 674 "hw2.y" /* yacc.c:1646  */
     {
 			statecount = 1;
 			if((yyvsp[-2].Token).tokentype==0)
@@ -2429,7 +2429,7 @@ yyreduce:
     break;
 
   case 61:
-#line 686 "hw2.y" /* yacc.c:1646  */
+#line 693 "hw2.y" /* yacc.c:1646  */
     {
 			fprintf(javacode,"\t\tgetstatic java.io.PrintStream java.lang.System.out\n");
 		}
@@ -2437,7 +2437,7 @@ yyreduce:
     break;
 
   case 62:
-#line 690 "hw2.y" /* yacc.c:1646  */
+#line 697 "hw2.y" /* yacc.c:1646  */
     {
 			statecount = 1;
 			if((yyvsp[-1].Token).tokentype==0)
@@ -2460,7 +2460,7 @@ yyreduce:
     break;
 
   case 63:
-#line 710 "hw2.y" /* yacc.c:1646  */
+#line 717 "hw2.y" /* yacc.c:1646  */
     {
 				statecount = 1;
 				if((yyvsp[-1].Token).tokentype==0)
@@ -2482,7 +2482,7 @@ yyreduce:
     break;
 
   case 64:
-#line 728 "hw2.y" /* yacc.c:1646  */
+#line 735 "hw2.y" /* yacc.c:1646  */
     {
 				statecount = 1;
 				if((yyvsp[-2].Token).tokentype==0)
@@ -2504,31 +2504,31 @@ yyreduce:
     break;
 
   case 65:
-#line 746 "hw2.y" /* yacc.c:1646  */
+#line 753 "hw2.y" /* yacc.c:1646  */
     {statecount = 0;tabcount++;createtab(tabcount);}
 #line 2510 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 66:
-#line 747 "hw2.y" /* yacc.c:1646  */
+#line 754 "hw2.y" /* yacc.c:1646  */
     {cout<<endl;dump(tabcount);tabcount--; Trace("<'{' scopecontent reduce to block >\n");}
 #line 2516 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 749 "hw2.y" /* yacc.c:1646  */
+#line 756 "hw2.y" /* yacc.c:1646  */
     {if(is_const!=1)fprintf(javacode,"\t\tldc \"%s\"\n",(yyvsp[0].Token).stringval);(yyval.Token).tokentype=3;strcpy((yyval.Token).stringval,(yyvsp[0].Token).stringval);Trace("< string_expression reduce to expression >\n");}
 #line 2522 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 68:
-#line 750 "hw2.y" /* yacc.c:1646  */
+#line 757 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=4;(yyval.Token).boolval = (yyvsp[0].Token).boolval;Trace("< bool_expression reduce to expression >\n");}
 #line 2528 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 69:
-#line 752 "hw2.y" /* yacc.c:1646  */
+#line 759 "hw2.y" /* yacc.c:1646  */
     {
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
 			{
@@ -2559,7 +2559,7 @@ yyreduce:
     break;
 
   case 70:
-#line 779 "hw2.y" /* yacc.c:1646  */
+#line 786 "hw2.y" /* yacc.c:1646  */
     {
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
 			{
@@ -2590,7 +2590,7 @@ yyreduce:
     break;
 
   case 71:
-#line 806 "hw2.y" /* yacc.c:1646  */
+#line 813 "hw2.y" /* yacc.c:1646  */
     {
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
 			{
@@ -2621,7 +2621,7 @@ yyreduce:
     break;
 
   case 72:
-#line 833 "hw2.y" /* yacc.c:1646  */
+#line 840 "hw2.y" /* yacc.c:1646  */
     {
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
 			{
@@ -2652,7 +2652,7 @@ yyreduce:
     break;
 
   case 73:
-#line 860 "hw2.y" /* yacc.c:1646  */
+#line 867 "hw2.y" /* yacc.c:1646  */
     {
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
 			{
@@ -2668,7 +2668,7 @@ yyreduce:
     break;
 
   case 74:
-#line 872 "hw2.y" /* yacc.c:1646  */
+#line 879 "hw2.y" /* yacc.c:1646  */
     {
 			if((yyvsp[0].Token).tokentype==0)
 			{
@@ -2689,7 +2689,7 @@ yyreduce:
     break;
 
   case 75:
-#line 889 "hw2.y" /* yacc.c:1646  */
+#line 896 "hw2.y" /* yacc.c:1646  */
     {
 			if((yyvsp[-1].Token).tokentype==0)
 			{
@@ -2719,7 +2719,7 @@ yyreduce:
     break;
 
   case 76:
-#line 915 "hw2.y" /* yacc.c:1646  */
+#line 922 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).intval = (yyvsp[0].Token).intval;
 			(yyval.Token).tokentype=0;
@@ -2732,13 +2732,13 @@ yyreduce:
     break;
 
   case 77:
-#line 923 "hw2.y" /* yacc.c:1646  */
+#line 930 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).floatval = (yyvsp[0].Token).floatval;(yyval.Token).tokentype=1; Trace("< FLOAT reduce to expression >\n");}
 #line 2738 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 78:
-#line 925 "hw2.y" /* yacc.c:1646  */
+#line 932 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype = returntype(tabcount,(yyvsp[0].Token).stringval);
 			if(returntype(tabcount,(yyvsp[0].Token).stringval)==0)
@@ -2822,7 +2822,7 @@ yyreduce:
     break;
 
   case 79:
-#line 1005 "hw2.y" /* yacc.c:1646  */
+#line 1012 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype = returntype(tabcount,(yyvsp[-3].Token).stringval);
 			if(returntype(tabcount,(yyvsp[-3].Token).stringval)==0)
@@ -2885,61 +2885,61 @@ yyreduce:
     break;
 
   case 80:
-#line 1064 "hw2.y" /* yacc.c:1646  */
+#line 1071 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=3;strcpy((yyval.Token).stringval,(yyvsp[0].Token).stringval);Trace("< \" STRING \" reduce to string_expression >\n");}
 #line 2891 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 81:
-#line 1066 "hw2.y" /* yacc.c:1646  */
+#line 1073 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;(yyval.Token).intval=(yyvsp[-2].Token).intval+(yyvsp[0].Token).intval;Trace("< int_expression '+' int_expression reduce to int_expression >\n");}
 #line 2897 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 82:
-#line 1067 "hw2.y" /* yacc.c:1646  */
+#line 1074 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;(yyval.Token).intval=(yyvsp[-2].Token).intval-(yyvsp[0].Token).intval;Trace("< int_expression '-' int_expression reduce to int_expression >\n");}
 #line 2903 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 83:
-#line 1068 "hw2.y" /* yacc.c:1646  */
+#line 1075 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;(yyval.Token).intval=(yyvsp[-2].Token).intval*(yyvsp[0].Token).intval;Trace("< int_expression '*' int_expression reduce to int_expression >\n");}
 #line 2909 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 84:
-#line 1069 "hw2.y" /* yacc.c:1646  */
+#line 1076 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;(yyval.Token).intval=(yyvsp[-2].Token).intval/(yyvsp[0].Token).intval;Trace("< int_expression '/' int_expression reduce to int_expression >\n");}
 #line 2915 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 85:
-#line 1070 "hw2.y" /* yacc.c:1646  */
+#line 1077 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;(yyval.Token).intval=(yyvsp[-2].Token).intval%(yyvsp[0].Token).intval;Trace("< int_expression '%%' int_expression reduce to int_expression >\n");}
 #line 2921 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 86:
-#line 1071 "hw2.y" /* yacc.c:1646  */
+#line 1078 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;(yyval.Token).intval=-(yyvsp[0].Token).intval;Trace("< '-' int_expression reduce to int_expression >\n");}
 #line 2927 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 87:
-#line 1072 "hw2.y" /* yacc.c:1646  */
+#line 1079 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;(yyval.Token).intval=(yyvsp[-1].Token).intval;Trace("< '(' int_expression ')' reduce to int_expression >\n");}
 #line 2933 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 88:
-#line 1073 "hw2.y" /* yacc.c:1646  */
+#line 1080 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;(yyval.Token).intval=(yyvsp[0].Token).intval;Trace("< INTEGER reduce to int_expression >\n");}
 #line 2939 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 89:
-#line 1075 "hw2.y" /* yacc.c:1646  */
+#line 1082 "hw2.y" /* yacc.c:1646  */
     {
 		if(returntype(tabcount,(yyvsp[0].Token).stringval)!=0)
 			yyerror("type error");
@@ -2962,7 +2962,7 @@ yyreduce:
     break;
 
   case 90:
-#line 1095 "hw2.y" /* yacc.c:1646  */
+#line 1102 "hw2.y" /* yacc.c:1646  */
     {
 				  label_stack[label_top++] = label_counter; // to prevent if block has other ifs , i must save the else or outside label
 				  fprintf(javacode,"\t\tifeq L%d\n",label_counter); // if bool_expression is not,it will jump to else or outside
@@ -2972,25 +2972,25 @@ yyreduce:
     break;
 
   case 91:
-#line 1100 "hw2.y" /* yacc.c:1646  */
+#line 1107 "hw2.y" /* yacc.c:1646  */
     {Trace("< IF '(' bool_expression ')' else_statement reduce to if_statement >\n");}
 #line 2978 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 92:
-#line 1102 "hw2.y" /* yacc.c:1646  */
+#line 1109 "hw2.y" /* yacc.c:1646  */
     {fprintf(javacode,"\tL%d:\n",label_stack[--label_top]+1);}
 #line 2984 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 93:
-#line 1103 "hw2.y" /* yacc.c:1646  */
+#line 1110 "hw2.y" /* yacc.c:1646  */
     {fprintf(javacode,"\tL%d:\n",label_stack[--label_top]+1);}
 #line 2990 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 94:
-#line 1105 "hw2.y" /* yacc.c:1646  */
+#line 1112 "hw2.y" /* yacc.c:1646  */
     {
 					fprintf(javacode,"\t\tgoto L%d\n",label_stack[label_top-1]+1);  // go outside
 				  	fprintf(javacode,"\tL%d:\n",label_stack[label_top-1]);
@@ -2999,13 +2999,13 @@ yyreduce:
     break;
 
   case 95:
-#line 1109 "hw2.y" /* yacc.c:1646  */
+#line 1116 "hw2.y" /* yacc.c:1646  */
     {fprintf(javacode,"\tL%d:\n",label_stack[--label_top]+1);}
 #line 3005 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 96:
-#line 1111 "hw2.y" /* yacc.c:1646  */
+#line 1118 "hw2.y" /* yacc.c:1646  */
     {
 					fprintf(javacode,"\t\tgoto L%d\n",label_stack[label_top-1]+1);  // go outside
 				  	fprintf(javacode,"\tL%d:\n",label_stack[label_top-1]);
@@ -3014,13 +3014,13 @@ yyreduce:
     break;
 
   case 97:
-#line 1115 "hw2.y" /* yacc.c:1646  */
+#line 1122 "hw2.y" /* yacc.c:1646  */
     {fprintf(javacode,"\tL%d:\n",label_stack[--label_top]+1);}
 #line 3020 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 98:
-#line 1117 "hw2.y" /* yacc.c:1646  */
+#line 1124 "hw2.y" /* yacc.c:1646  */
     {
 					fprintf(javacode,"\t\tgoto L%d\n",label_stack[label_top-1]+1);  // go outside
 				  	fprintf(javacode,"\tL%d:\n",label_stack[label_top-1]);
@@ -3029,13 +3029,13 @@ yyreduce:
     break;
 
   case 99:
-#line 1121 "hw2.y" /* yacc.c:1646  */
+#line 1128 "hw2.y" /* yacc.c:1646  */
     {fprintf(javacode,"\tL%d:\n",label_stack[--label_top]+1);}
 #line 3035 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 100:
-#line 1123 "hw2.y" /* yacc.c:1646  */
+#line 1130 "hw2.y" /* yacc.c:1646  */
     {
 					fprintf(javacode,"\t\tgoto L%d\n",label_stack[label_top-1]+1);  // go outside
 				  	fprintf(javacode,"\tL%d:\n",label_stack[label_top-1]);
@@ -3044,13 +3044,13 @@ yyreduce:
     break;
 
   case 101:
-#line 1127 "hw2.y" /* yacc.c:1646  */
+#line 1134 "hw2.y" /* yacc.c:1646  */
     {fprintf(javacode,"\tL%d:\n",label_stack[--label_top]+1);}
 #line 3050 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 102:
-#line 1130 "hw2.y" /* yacc.c:1646  */
+#line 1137 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype=4;
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
@@ -3117,7 +3117,7 @@ yyreduce:
     break;
 
   case 103:
-#line 1193 "hw2.y" /* yacc.c:1646  */
+#line 1200 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype=4;
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
@@ -3177,7 +3177,7 @@ yyreduce:
     break;
 
   case 104:
-#line 1249 "hw2.y" /* yacc.c:1646  */
+#line 1256 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype=4;
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
@@ -3237,7 +3237,7 @@ yyreduce:
     break;
 
   case 105:
-#line 1305 "hw2.y" /* yacc.c:1646  */
+#line 1312 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype=4;
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
@@ -3304,7 +3304,7 @@ yyreduce:
     break;
 
   case 106:
-#line 1368 "hw2.y" /* yacc.c:1646  */
+#line 1375 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype=4;
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
@@ -3364,7 +3364,7 @@ yyreduce:
     break;
 
   case 107:
-#line 1424 "hw2.y" /* yacc.c:1646  */
+#line 1431 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype=4;
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
@@ -3424,7 +3424,7 @@ yyreduce:
     break;
 
   case 108:
-#line 1480 "hw2.y" /* yacc.c:1646  */
+#line 1487 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype=4;
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
@@ -3472,7 +3472,7 @@ yyreduce:
     break;
 
   case 109:
-#line 1524 "hw2.y" /* yacc.c:1646  */
+#line 1531 "hw2.y" /* yacc.c:1646  */
     {
 			(yyval.Token).tokentype=4;
 			if((yyvsp[-2].Token).tokentype==0&&(yyvsp[0].Token).tokentype==0)
@@ -3520,7 +3520,7 @@ yyreduce:
     break;
 
   case 110:
-#line 1568 "hw2.y" /* yacc.c:1646  */
+#line 1575 "hw2.y" /* yacc.c:1646  */
     {
 			if((yyvsp[0].Token).tokentype!=4)
 				yyerror("type error");
@@ -3538,19 +3538,19 @@ yyreduce:
     break;
 
   case 111:
-#line 1581 "hw2.y" /* yacc.c:1646  */
+#line 1588 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=4;(yyval.Token).boolval=true;fprintf(javacode,"\t\ticonst_1\n");Trace("< TRUE reduce to bool_expression >\n");}
 #line 3544 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 112:
-#line 1582 "hw2.y" /* yacc.c:1646  */
+#line 1589 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=4;(yyval.Token).boolval=false;fprintf(javacode,"\t\ticonst_0\n");Trace("< FALSE reduce to bool_expression >\n");}
 #line 3550 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 113:
-#line 1585 "hw2.y" /* yacc.c:1646  */
+#line 1592 "hw2.y" /* yacc.c:1646  */
     {
 					fprintf(javacode,"\tL%d:\n",label_counter);  // give the label for the start of while
 					label_stack[label_top++] = label_counter;   // to keep the start label of while for prevent the many whiles
@@ -3560,7 +3560,7 @@ yyreduce:
     break;
 
   case 114:
-#line 1591 "hw2.y" /* yacc.c:1646  */
+#line 1598 "hw2.y" /* yacc.c:1646  */
     {
 					fprintf(javacode,"\t\tifeq L%d\n",label_counter);
 					label_stack[label_top++] = label_counter;   // to keep the end label of while for prevent the many whiles
@@ -3570,13 +3570,13 @@ yyreduce:
     break;
 
   case 115:
-#line 1596 "hw2.y" /* yacc.c:1646  */
+#line 1603 "hw2.y" /* yacc.c:1646  */
     {Trace("< WHILE '(' bool_expression ')' while_content reduce to loop_statement >\n");}
 #line 3576 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 116:
-#line 1599 "hw2.y" /* yacc.c:1646  */
+#line 1606 "hw2.y" /* yacc.c:1646  */
     {
 					fprintf(javacode,"\t\tgoto L%d\n",label_stack[label_top-2]);  // go to the near start of while , label_top-1 -> end of while , label_top-2 ->start of while
 					fprintf(javacode,"\tL%d:\n",label_stack[--label_top]);  // for print the end label of while
@@ -3587,7 +3587,7 @@ yyreduce:
     break;
 
   case 117:
-#line 1606 "hw2.y" /* yacc.c:1646  */
+#line 1613 "hw2.y" /* yacc.c:1646  */
     {
 					fprintf(javacode,"\t\tgoto L%d\n",label_stack[label_top-2]);  // go to the near start of while , label_top-1 -> end of while , label_top-2 ->start of while
 					fprintf(javacode,"\tL%d:\n",label_stack[--label_top]);  // for print the end label of while
@@ -3598,25 +3598,25 @@ yyreduce:
     break;
 
   case 118:
-#line 1613 "hw2.y" /* yacc.c:1646  */
+#line 1620 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=0;Trace("< INT reduce to Type >\n");}
 #line 3604 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 119:
-#line 1614 "hw2.y" /* yacc.c:1646  */
+#line 1621 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=1;Trace("< FLOAT reduce to Type >\n");}
 #line 3610 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 120:
-#line 1615 "hw2.y" /* yacc.c:1646  */
+#line 1622 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=3;Trace("< STR reduce to Type >\n");}
 #line 3616 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 121:
-#line 1616 "hw2.y" /* yacc.c:1646  */
+#line 1623 "hw2.y" /* yacc.c:1646  */
     {(yyval.Token).tokentype=4;Trace("< BOOL reduce to Type >\n");}
 #line 3622 "y.tab.c" /* yacc.c:1646  */
     break;
@@ -3850,7 +3850,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 1618 "hw2.y" /* yacc.c:1906  */
+#line 1625 "hw2.y" /* yacc.c:1906  */
 
 //#include "lex.yy.c"
 int main()

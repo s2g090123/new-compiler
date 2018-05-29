@@ -1,4 +1,11 @@
 /*
+	WARNING!!!!!!:
+				if you watch my code
+					even copy my code
+						even even don't tell me
+							wa le e04 your teacher
+								and you are a dog fxck you!!!!
+	
 	Suggerst reading in vscode
 	maybe has some problems in string and some while/if condictions
 	this project hadn't finished the array type and float type
@@ -40,7 +47,7 @@
     int idcount[256]={0};
     int functioncount = 0;
 	int functionstatetype = 5;		// let me know what the type in this function. default is 5(void)
-    int tabcount = 0;
+    int tabcount = 0;				// the total table number
 	int statecount =0;				// to record the function's state number,if it is 0 it is error
 	int stackcount = 0;				// to record the stack has been already haven in this function
 	int label_stack[100];   		// for the situation has many if-else whiles,so i must save the next else's or outside label
