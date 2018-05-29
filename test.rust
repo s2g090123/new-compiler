@@ -1,0 +1,8 @@
+let mut c = 1 + 4 + (51 % 5 * 9);
+let mut a:bool = (true && false) == false;
+let mut b = (a && false) == false;
+
+fn main()
+{
+    return 0;
+}
