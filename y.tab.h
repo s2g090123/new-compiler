@@ -150,10 +150,10 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 80 "hw2.y" /* yacc.c:1909  */
+#line 83 "hw2.y" /* yacc.c:1909  */
 
 	struct{
-		int tokentype; //0:int 1:float 2:char 3:string 4:bool
+		int tokentype; // 0:int 1:float 2:char 3:string 4:bool
 		union{
 			int intval;
 			float floatval;

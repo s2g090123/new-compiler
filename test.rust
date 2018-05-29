@@ -1,8 +1,17 @@
-let mut c = 1 + 4 + (51 % 5 * 9);
-let mut a:bool = (true && false) == false;
-let mut b = (a && false) == false;
+let mut a = 5;
+let mut b = 1;
 
 fn main()
 {
-    return 0;
+    if(a==5){
+        print("hello");
+    }
+    else{
+        if(b==1){
+            print("world");
+        }
+        else{
+            print("!!");
+        }
+    }
 }
