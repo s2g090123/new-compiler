@@ -6,8 +6,14 @@ class proj3
 	max_stack 15
 	max_locals 15
 	{
-		sipush 0
-		sipush 0
+		sipush 10
+		istore 2
+		iload 1
+		sipush 10
+		iadd
+		istore 1
+		iload 0
+		iload 1
 		iadd
 		ireturn
 	}

@@ -4169,6 +4169,7 @@ void insertargu(string id,int type)
 	argu[totalargu].name = id;
 	argu[totalargu].thetype = type;
 	argu[totalargu].stackindex = stackcount;
+	argu[totalargu].thestate = 1;
 	argu[totalargu].is_global = 0;
 	totalargu++;
 	stackcount++;
@@ -4242,6 +4243,12 @@ symtab returnfunctiontable(char *id)
 }
 int return_constant_or_variable(int tabcount,char *id)
 {
+	for(int i =0;i<totalargu;i++)
+	{
+		if(argu[i].name.compare(id)==0)
+			return 1;
+	}
+	cout<<456<<endl;
 	int choose = 0;
 	int index = 0;
 	for(int i =tabcount;i>=0;i--)
@@ -4257,6 +4264,11 @@ int return_constant_or_variable(int tabcount,char *id)
 }
 int insertcheck(int tabcount,char *id)
 {
+	for(int i =0;i<totalargu;i++)
+	{
+		if(argu[i].name.compare(id)==0)
+			return 1;
+	}
 	int choose = 0;
 	int index = 0;
 	for(int i =tabcount;i>=0;i--)
@@ -4275,6 +4287,14 @@ int insertcheck(int tabcount,char *id)
 }
 void insertvalue(int tabcount,char *id,int temp)
 {
+	for(int i =0;i<totalargu;i++)
+	{
+		if(argu[i].name.compare(id)==0)
+		{
+			argu[i].theint = temp;
+			return;
+		}
+	}
 	int choose = 0;
 	int index = 0;
 	for(int i =tabcount;i>=0;i--)
@@ -4291,6 +4311,14 @@ void insertvalue(int tabcount,char *id,int temp)
 }
 void insertvalue(int tabcount,char *id,float temp)
 {
+	for(int i =0;i<totalargu;i++)
+	{
+		if(argu[i].name.compare(id)==0)
+		{
+			argu[i].thefloat = temp;
+			return;
+		}
+	}
 	int choose = 0;
 	int index = 0;
 	for(int i =tabcount;i>=0;i--)
@@ -4307,6 +4335,14 @@ void insertvalue(int tabcount,char *id,float temp)
 }
 void insertvalue(int tabcount,char *id,char *temp)
 {
+	for(int i =0;i<totalargu;i++)
+	{
+		if(argu[i].name.compare(id)==0)
+		{
+			argu[i].thestring = temp;
+			return;
+		}
+	}
 	int choose = 0;
 	int index = 0;
 	for(int i =tabcount;i>=0;i--)
@@ -4323,6 +4359,14 @@ void insertvalue(int tabcount,char *id,char *temp)
 }
 void insertvalue(int tabcount,char *id,bool temp)
 {
+	for(int i =0;i<totalargu;i++)
+	{
+		if(argu[i].name.compare(id)==0)
+		{
+			argu[i].thebool = temp;
+			return;
+		}
+	}
 	int choose = 0;
 	int index = 0;
 	for(int i =tabcount;i>=0;i--)

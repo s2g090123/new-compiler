@@ -9,6 +9,8 @@ let mut a = 5;
 // function declaration
 fn add(a:int, b:int) -> int
 {
+  let mut c = 10;
+  b = b + 10;
   return a+b;
 }
     
