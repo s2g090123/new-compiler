@@ -11,9 +11,6 @@
 	---solve some detail problems
 	maybe has some problems in string and some while/if condictions
 	this project hadn't finished the array type and float type and string variable
-	!!!!!
-		stack pop question (function to function to pop) <- need not to see this problem
-		many if-else problem,has empty label (to check it can run) <- it can't run,but it is solved
 */
 %{
     #include<iostream>
