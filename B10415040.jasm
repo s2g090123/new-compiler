@@ -1,46 +1,239 @@
 class proj3
 {
+	field static int a
+	field static int b1 = 100
+	field static int b2 = 0
+	method public static int add(int, int)
+	max_stack 15
+	max_locals 15
+	{
+		iload 0
+		iload 1
+		iadd
+		ireturn
+	}
 	method public static void main(java.lang.String[])
 	max_stack 15
 	max_locals 15
 	{
-		sipush 8
+		sipush 5
 		istore 0
-		sipush 1
-		istore 1
-		sipush 1
-		istore 2
-	L0:
-		iload 0
-		sipush 2
-		isub
-		ifgt L1
-		iconst_0
-		goto L2
-	L1:
 		iconst_1
-	L2:
-		ifeq L3
-		iload 1
-		istore 3
-		iload 1
-		iload 2
-		iadd
 		istore 1
-		iload 3
-		istore 2
-		iload 0
-		sipush 1
-		isub
-		istore 0
-		goto L0
-	L3:
 		getstatic java.io.PrintStream java.lang.System.out
-		ldc "Result of computation: "
-		invokevirtual void java.io.PrintStream.print(java.lang.String)
+		getstatic int proj3.b1
+		invokevirtual void java.io.PrintStream.println(int)
+		sipush 5
+		sipush 10
+		invokestatic int proj3.add(int, int)
+		putstatic int proj3.b1
+		getstatic int proj3.b1
+		sipush 10
+		isub
+		ifgt L0
+		iconst_0
+		goto L1
+	L0:
+		iconst_1
+	L1:
+		ifeq L2
+		getstatic int proj3.b1
+		sipush 10
+		isub
+		ifgt L4
+		iconst_0
+		goto L5
+	L4:
+		iconst_1
+	L5:
+		ifeq L6
+		getstatic java.io.PrintStream java.lang.System.out
+		getstatic int proj3.b1
+		ineg
+		invokevirtual void java.io.PrintStream.println(int)
+		goto L7
+	L6:
+		nop
+		getstatic java.io.PrintStream java.lang.System.out
+		getstatic int proj3.b1
+		invokevirtual void java.io.PrintStream.println(int)
+	L7:
+		nop
+	L2:
+		nop
+		sipush 94
+		sipush 10
+		invokestatic int proj3.add(int, int)
+		istore 0
+		iload 0
+		sipush 10
+		isub
+		iflt L8
+		iconst_0
+		goto L9
+	L8:
+		iconst_1
+	L9:
+		ifeq L10
+		iload 0
+		sipush 10
+		isub
+		ifgt L12
+		iconst_0
+		goto L13
+	L12:
+		iconst_1
+	L13:
+		ifeq L14
+		getstatic java.io.PrintStream java.lang.System.out
+		iload 0
+		ineg
+		invokevirtual void java.io.PrintStream.println(int)
+		goto L15
+	L14:
+		nop
 		getstatic java.io.PrintStream java.lang.System.out
 		iload 0
 		invokevirtual void java.io.PrintStream.println(int)
+	L15:
+		nop
+		goto L11
+	L10:
+		nop
+		iload 0
+		sipush 10
+		isub
+		iflt L16
+		iconst_0
+		goto L17
+	L16:
+		iconst_1
+	L17:
+		ifeq L18
+		iload 0
+		sipush 10
+		isub
+		ifgt L20
+		iconst_0
+		goto L21
+	L20:
+		iconst_1
+	L21:
+		ifeq L22
+		getstatic java.io.PrintStream java.lang.System.out
+		iload 0
+		ineg
+		invokevirtual void java.io.PrintStream.println(int)
+		goto L23
+	L22:
+		nop
+		getstatic java.io.PrintStream java.lang.System.out
+		iload 0
+		invokevirtual void java.io.PrintStream.println(int)
+	L23:
+		nop
+		goto L19
+	L18:
+		nop
+		iload 0
+		sipush 10
+		isub
+		ifgt L24
+		iconst_0
+		goto L25
+	L24:
+		iconst_1
+	L25:
+		ifeq L26
+		getstatic java.io.PrintStream java.lang.System.out
+		iload 0
+		ineg
+		invokevirtual void java.io.PrintStream.println(int)
+		goto L27
+	L26:
+		nop
+		getstatic java.io.PrintStream java.lang.System.out
+		iload 0
+		invokevirtual void java.io.PrintStream.println(int)
+	L27:
+		nop
+	L19:
+		nop
+	L11:
+		nop
+		sipush 100
+		putstatic int proj3.a
+		iload 1
+		ifeq L28
+		iconst_1
+		goto L29
+	L28:
+		iconst_1
+	L29:
+		ifeq L30
+		getstatic java.io.PrintStream java.lang.System.out
+		getstatic int proj3.a
+		invokevirtual void java.io.PrintStream.println(int)
+		goto L31
+	L30:
+		nop
+		getstatic java.io.PrintStream java.lang.System.out
+		getstatic int proj3.a
+		ineg
+		invokevirtual void java.io.PrintStream.println(int)
+	L31:
+		nop
+	L32:
+		iconst_0
+		ifeq L33
+		iconst_0
+		ifeq L34
+		getstatic java.io.PrintStream java.lang.System.out
+		sipush 1
+		invokevirtual void java.io.PrintStream.print(int)
+		goto L35
+	L34:
+		nop
+	L36:
+		iconst_0
+		ifeq L37
+		getstatic java.io.PrintStream java.lang.System.out
+		sipush 2
+		invokevirtual void java.io.PrintStream.print(int)
+		goto L36
+	L37:
+		nop
+	L35:
+		nop
+		goto L32
+	L33:
+		nop
+	L38:
+		iconst_1
+		iconst_1
+		ixor
+		ifeq L39
+		getstatic java.io.PrintStream java.lang.System.out
+		ldc "GG"
+		invokevirtual void java.io.PrintStream.print(java.lang.String)
+		goto L38
+	L39:
+		nop
+		getstatic java.io.PrintStream java.lang.System.out
+		sipush 94
+		invokevirtual void java.io.PrintStream.print(int)
+		getstatic java.io.PrintStream java.lang.System.out
+		iconst_1
+		invokevirtual void java.io.PrintStream.print(int)
+		getstatic java.io.PrintStream java.lang.System.out
+		ldc " 3 small."
+		invokevirtual void java.io.PrintStream.print(java.lang.String)
+		getstatic java.io.PrintStream java.lang.System.out
+		ldc ""
+		invokevirtual void java.io.PrintStream.println(java.lang.String)
+		getstatic java.io.PrintStream java.lang.System.out
+		ldc "Hello World"
+		invokevirtual void java.io.PrintStream.println(java.lang.String)
 		return
 	}
 }

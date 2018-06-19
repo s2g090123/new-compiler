@@ -35,11 +35,12 @@ class proj3
 		istore 0
 		goto L0
 	L3:
+		nop
 		getstatic java.io.PrintStream java.lang.System.out
 		ldc "Result of computation: "
 		invokevirtual void java.io.PrintStream.print(java.lang.String)
 		getstatic java.io.PrintStream java.lang.System.out
-		iload 0
+		iload 1
 		invokevirtual void java.io.PrintStream.println(int)
 		return
 	}

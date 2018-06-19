@@ -25,4 +25,12 @@ clean:
 	rm -f lex.yy.cpp y.tab.cpp y.tab.h  *.o *.exe 
 
 run: 
-	./$(OUTPUT_FILENAME) <fib.rust
+	./$(OUTPUT_FILENAME) <test.rust
+
+allrun: run javaa java
+
+javaa: 
+	javaaPortable/javaa B10415040.jasm
+
+java: proj3.class
+	java proj3

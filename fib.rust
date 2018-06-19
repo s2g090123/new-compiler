@@ -20,6 +20,6 @@ fn main() {
     
     // print result
     print "Result of computation: ";
-    println n;
+    println Fn;
 }
 
